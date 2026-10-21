@@ -66,9 +66,11 @@ The database seeder provisions the following accounts (all use password: `passwo
 
 ### Steps:
 
-1. **Clone or extract repository into web root:**
+1. **Clone or extract repository:**
    ```bash
-   cd e:/wamp64/www/Interview
+   git clone https://github.com/whosatyambarnwal/Task-Management-System.git
+   cd Task-Management-System
+   # (Example: replace with your local project directory path, e.g., cd /path/to/Task-Management-System)
    ```
 
 2. **Install Composer dependencies:**
@@ -77,7 +79,7 @@ The database seeder provisions the following accounts (all use password: `passwo
    ```
 
 3. **Environment Setup:**
-   Ensure `.env` contains valid database credentials:
+   Copy `.env.example` to `.env` (if not already present) and configure your database settings:
    ```dotenv
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
@@ -92,10 +94,14 @@ The database seeder provisions the following accounts (all use password: `passwo
    php artisan key:generate
    ```
 
-5. **Run Migrations & Seed Data:**
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
+5. **Database Setup (Choose Option A or Option B):**
+   - **Option A (Recommended - Via Artisan Migrations & Seeders):**
+     ```bash
+     php artisan migrate:fresh --seed
+     ```
+   - **Option B (Direct SQL Dump Import):**
+     Create a database named `task_management` in MySQL/phpMyAdmin and import the included export file:
+     `database/task_management.sql`
 
 6. **Serve the Application:**
    ```bash
